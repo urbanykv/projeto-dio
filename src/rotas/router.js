@@ -1,14 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import Login from "../pages/Login";
+import Feed from "../pages/Feed";
 
 const Rotas = () => {
     return(
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route exact path="/login" element={<Login />} />
-                <Route exact path="/pagina-inicial" element={''} />
+                <Route path="/feed" element={<Feed />} />
             </Routes>
         </BrowserRouter>
     );
