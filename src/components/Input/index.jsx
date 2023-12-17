@@ -1,13 +1,15 @@
 import React from "react";
 import { 
+    ErrorMessage,
     InputContainer,
     InputForm
 } from "./styles";
 import { Controller } from "react-hook-form";
 
 
-const Input = ({iconInput, control, type, placeholder, name, ...rest}) => {
+const Input = ({iconInput, control, type, placeholder, name, errorMessage, ...rest}) => {
     return(
+        <>
         <InputContainer>
             <img src={iconInput} alt="Icon Input"/>
             <Controller
@@ -21,6 +23,8 @@ const Input = ({iconInput, control, type, placeholder, name, ...rest}) => {
                 />}
             />
         </InputContainer>
+        { errorMessage ? <ErrorMessage>{errorMessage}</ErrorMessage> : null }
+        </>
     );
 };
 

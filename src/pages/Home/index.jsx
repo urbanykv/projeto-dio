@@ -34,29 +34,26 @@ const Home = () => {
     const {
         control,
         handleSubmit,
-        formState: { errors, isValid },
-      } = useForm({
+        formState: { errors },
+        } = useForm({
         resolver: yupResolver(schema),
         mode: 'onChange'
-      })
+    })
 
-      console.log(isValid);
-    
-    
-      const onSubmit = d => {
-        let encontrado = false;
+    const onSubmit = dataForm => {
+    let encontrado = false;
 
-        data.map( objeto => {
-            console.log(objeto);
-            if(d.email === objeto.email && d.password == objeto.senha){
-                encontrado = true;
-                navigate('/feed');
-            }
-            if(!encontrado){
-                alert('n foi encontrado.')
-            }
-        })
-      }
+    data.map( dataAPI => {
+        console.log(dataAPI);
+        if(dataForm.email === dataAPI.email && dataForm.password === dataAPI.senha){
+            encontrado = true;
+            navigate('/feed');
+        }
+        if(!encontrado){
+            alert('n foi encontrado.')
+        }
+    })
+    }
 
     return(
         <>
@@ -67,13 +64,15 @@ const Home = () => {
                         control={control}
                         iconInput={email} 
                         type="email" 
-                        placeholder="example@mail.com"/>
+                        placeholder="example@mail.com"
+                        errorMessage={errors?.email?.message}/>
                     <Input 
                         name="password"
                         control={control}
                         iconInput={password} 
                         type="password" 
-                        placeholder="Abacaxi123+"/>
+                        placeholder="Abacaxi123+"
+                        errorMessage={errors?.password?.message}/>
                     <Button type="submit" title="Entrar" icon={login} />
                 </FormContainer>
             </HomeContainer>

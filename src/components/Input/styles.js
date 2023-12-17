@@ -20,3 +20,12 @@ export const InputForm = styled.input`
         outline: none;
     }
 `
+
+export const ErrorMessage = styled.span`
+    color: #ff0000;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    align-self: flex-start;
+    margin: -10px 100px;
+`

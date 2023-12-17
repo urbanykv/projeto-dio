@@ -5,7 +5,7 @@ const Button = ({ title, icon, type ,onClick }) => {
     return(
         <ButtonContainer type={type} onClick={onClick}>
             {title}
-            <img src={icon}/>
+            <img src={icon} alt="icone"/>
         </ButtonContainer>
     );
 };
